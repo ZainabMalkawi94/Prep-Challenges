@@ -26,20 +26,18 @@
 // Output:
 // ["Customer Name :Romio Joliat , Age :35", "Customer Name :Mario Ristrova , Age :39", ... ]
 
-const customerAndAge = (obj) => {
-let nameAgeArr = [];
-  for (const property in obj) {
-    nameAgeArr.push(`Customer Name :${property} , Age :${obj[property]}`);
-  }
-return nameAgeArr;
 
-  // write your code here
-};
+  const customerAndAge = (obj) => {
+    let nameAgeArr = [];
+      for (const property in obj) {
+        nameAgeArr.push(`Customer Name :${property} , Age :${obj[property]}`);
+      }
+    return nameAgeArr;};
 // -------------------------------------------------------------------------------------------------------
 
 // -------------------------------------------------------------------------------------------------------
 // Challenge 02
-// optional:
+// Required:
 //
 // Write a function that takes recipe info object and returns an array of recipe info as strings
 // as in the example
@@ -59,7 +57,12 @@ return nameAgeArr;
 // You can solve this challenge by using Object.entries
 
 const getEntries = (obj) => {
-  // write your code here
+
+  let OutputArr = [];
+  for (const [key, value] of Object.entries(obj)) {
+    OutputArr.push(`${key}: ${value}`);
+  }
+return OutputArr;
 };
 // -------------------------------------------------------------------------------------------------------
 
