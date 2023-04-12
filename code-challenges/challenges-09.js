@@ -20,8 +20,9 @@
 
 const arrInc = (arr) => {
     let result = [];
-    // write your code here
-    return result;
+    arr.forEach(element =>result.push(element+10))
+
+   return result;
 }
 // -------------------------------------------------------------------------------------------------------
 
@@ -36,9 +37,12 @@ const arrInc = (arr) => {
 //  [5.4, 5.5 ,6.7, 6.8] 
 //  Output:
 //  [5, 6, 7, 7]
-// 
 const roundDecimals = (arr) => {
-    // write your code here
+    let result = [];
+
+    arr.forEach(element =>result.push(Math.round(element)));
+
+    return result;
 }
 // -------------------------------------------------------------------------------------------------------
 
@@ -107,7 +111,26 @@ const roundDecimals = (arr) => {
 //
 
 const employeesBonus = (arr) => {
-    // write your code here
+    for (let i = 0 ; i < arr.length ;i++){
+        let salaryInDollers = "";
+        let salaryWithoutDollers ="";
+        let salary = 0;
+        if (arr[i].workHours > 8)
+        {
+            salaryInDollers= arr[i].salary;
+            salaryWithoutDollers = salaryInDollers.split('$');
+            salary =parseInt(salaryWithoutDollers) + 100;
+            arr[i].salary = `${salary}$`;
+        }
+        else if (arr[i].workHours <= 8)
+        {
+            salaryInDollers= arr[i].salary;
+            salaryWithoutDollers = salaryInDollers.split('$');
+            salary = parseInt(salaryWithoutDollers) + 50;
+            arr[i].salary = `${salary}$`;
+        }
+    }
+    return arr;
 }
 // -------------------------------------------------------------------------------------------------------
 
@@ -127,7 +150,16 @@ const employeesBonus = (arr) => {
 // Output: 200
 
 const mostExpensive = (budget, mouseArray, keyBoardArray) => {
-    // write your code here
+    let expensiveItems = 0;
+for(let i =  mouseArray.length-1 ; i >= 0 ; i-- ){
+    for (let j = keyBoardArray.length-1 ; j >= 0 ; j-- ){
+        if (mouseArray[i] + keyBoardArray[j] <= budget)
+        {
+            expensiveItems = Math.max(expensiveItems, (mouseArray[i] + keyBoardArray[j]));
+        }
+    }
+}
+return expensiveItems;
 }
 // -------------------------------------------------------------------------------------------------------
 
